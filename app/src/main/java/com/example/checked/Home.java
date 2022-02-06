@@ -1,16 +1,15 @@
 package com.example.checked;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class Home extends Fragment {
 
@@ -29,14 +28,14 @@ public class Home extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        Button uploadButton = root.findViewById(R.id.upload_button);
-        uploadButton.setOnClickListener(this::goToUpload);
+        ImageView maskCheckButton = root.findViewById(R.id.mask_check);
+        maskCheckButton.setOnClickListener(this::goToMaskCheck);
 
         return root;
     }
 
-    public void goToUpload(View view) {
-        Intent upload = new Intent(getContext(), Upload.class);
-        startActivity(upload);
+    public void goToMaskCheck(View view) {
+        Intent maskCheck = new Intent(getContext(), MaskCheck.class);
+        startActivity(maskCheck);
     }
 }

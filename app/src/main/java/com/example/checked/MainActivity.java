@@ -19,16 +19,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sharedPreferences = getApplicationContext().getSharedPreferences("checked", Context.MODE_PRIVATE);
-        if (sharedPreferences.getString("token", null) != null) {
-            Fragment frag = getSupportFragmentManager().findFragmentById(R.id.fragmentNav);
-            NavController navController = NavHostFragment.findNavController(frag);
-            navController.navigate(R.id.home2);
-        } else {
-            Fragment frag = getSupportFragmentManager().findFragmentById(R.id.fragmentNav);
-            NavController navController = NavHostFragment.findNavController(frag);
-            navController.navigate(R.id.login);
-        }
+        getSupportActionBar().hide();
+//        sharedPreferences = getApplicationContext().getSharedPreferences("checked", Context.MODE_PRIVATE);
+//        if (sharedPreferences.getString("token", null) != null) {
+//            Fragment frag = getSupportFragmentManager().findFragmentById(R.id.fragmentNav);
+//            NavController navController = NavHostFragment.findNavController(frag);
+//            navController.navigate(R.id.home2);
+//        } else {
+//            Fragment frag = getSupportFragmentManager().findFragmentById(R.id.fragmentNav);
+//            NavController navController = NavHostFragment.findNavController(frag);
+//            navController.navigate(R.id.login);
+//        }
+        Fragment frag = getSupportFragmentManager().findFragmentById(R.id.fragmentNav);
+        NavController navController = NavHostFragment.findNavController(frag);
+        navController.navigate(R.id.login);
     }
 
 }

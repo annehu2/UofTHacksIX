@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class Login extends Fragment {
     SharedPreferences sharedPreferences;
@@ -30,7 +31,7 @@ public class Login extends Fragment {
                              Bundle savedInstanceState) {
         View root =  inflater.inflate(R.layout.fragment_login, container, false);
 
-        Button signIn = root.findViewById(R.id.upload_button);
+        ImageView signIn = root.findViewById(R.id.upload_button);
         signIn.setOnClickListener(this::signIn);
 
         return root;
