@@ -32,6 +32,7 @@ public class MaskCheck extends AppCompatActivity {
     private static final int pic_id = 69;
     ImageView facePhoto;
     private static final String TAG = "MainActivity";
+    boolean photoTaken = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,12 @@ public class MaskCheck extends AppCompatActivity {
 
     public void openCamera(View view) {
         //Toast.makeText(this, "Opened Camera!", Toast.LENGTH_SHORT).show(); // Delete this line once shit is done
+
+        if (photoTaken) {
+            finish();
+            return;
+        }
+
         Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(camera_intent, pic_id);
     }
@@ -55,6 +62,7 @@ public class MaskCheck extends AppCompatActivity {
             // BitMap is data structure of image file which store the image in memory
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             facePhoto = (ImageView) findViewById(R.id.imageView12);
+            photoTaken = true;
 
             // Set the image in imageview for display
             facePhoto.setImageBitmap(photo);
@@ -113,6 +121,7 @@ public class MaskCheck extends AppCompatActivity {
 
                     BatchAnnotateImagesResponse response = annotateRequest.execute();
                     message[0] = response.toString();
+                   // Customsearch customsearch = new Builder(httpTransport, jsonFactory, null).setApplicationName("your application name").build()
                     return response.toString();
                 } catch (Exception e) {
 

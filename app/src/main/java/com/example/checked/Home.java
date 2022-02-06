@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class Home extends Fragment {
@@ -30,12 +29,18 @@ public class Home extends Fragment {
 
         ImageView maskCheckButton = root.findViewById(R.id.mask_check);
         maskCheckButton.setOnClickListener(this::goToMaskCheck);
-
+        ImageView generateQrButton = root.findViewById(R.id.generateQrButton);
+        generateQrButton.setOnClickListener(this::goToGenerateCode);
         return root;
     }
 
     public void goToMaskCheck(View view) {
         Intent maskCheck = new Intent(getContext(), MaskCheck.class);
         startActivity(maskCheck);
+    }
+
+    public void goToGenerateCode(View view) {
+        Intent qrCode = new Intent(getContext(), GenerateCode.class);
+        startActivity(qrCode);
     }
 }
