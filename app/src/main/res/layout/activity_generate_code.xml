@@ -36,9 +36,11 @@
         android:id="@+id/verifiedtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/you_are_verified"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="114dp" />
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/background"
+        app:srcCompat="@drawable/you_are_verified" />
 
     <ImageView
         android:id="@+id/notVerified"

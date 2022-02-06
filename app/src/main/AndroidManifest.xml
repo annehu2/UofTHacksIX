@@ -14,6 +14,7 @@
         <activity
             android:name=".GenerateCode"
             android:exported="true" />
+        <activity android:name=".Screening"></activity>
         <activity android:name=".MaskCheck" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
-//        sharedPreferences = getApplicationContext().getSharedPreferences("checked", Context.MODE_PRIVATE);
+        sharedPreferences = getApplicationContext().getSharedPreferences("checked", Context.MODE_PRIVATE);
 //        if (sharedPreferences.getString("token", null) != null) {
 //            Fragment frag = getSupportFragmentManager().findFragmentById(R.id.fragmentNav);
 //            NavController navController = NavHostFragment.findNavController(frag);
@@ -30,9 +31,22 @@ public class MainActivity extends AppCompatActivity {
 //            NavController navController = NavHostFragment.findNavController(frag);
 //            navController.navigate(R.id.login);
 //        }
-        Fragment frag = getSupportFragmentManager().findFragmentById(R.id.fragmentNav);
-        NavController navController = NavHostFragment.findNavController(frag);
-        navController.navigate(R.id.login);
+
+        if(sharedPreferences.getString("goTo", "").equals("Home")){
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("goTo", null);
+            editor.apply();
+
+            Fragment frag = getSupportFragmentManager().findFragmentById(R.id.fragmentNav);
+            NavController navController = NavHostFragment.findNavController(frag);
+            navController.navigate(R.id.home2);
+        } else {
+            Fragment frag = getSupportFragmentManager().findFragmentById(R.id.fragmentNav);
+            NavController navController = NavHostFragment.findNavController(frag);
+            navController.navigate(R.id.login);
+        }
     }
+
+
 
 }

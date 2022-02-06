@@ -24,4 +24,58 @@
             android:id="@+id/action_login_to_home2"
             app:destination="@id/home2" />
     </fragment>
+    <fragment
+        android:id="@+id/q1"
+        android:name="com.example.checked.screenings.q1"
+        android:label="fragment_q1"
+        tools:layout="@layout/fragment_q1" >
+        <action
+            android:id="@+id/action_q1_to_q2"
+            app:destination="@id/q2" />
+    </fragment>
+    <fragment
+        android:id="@+id/q2"
+        android:name="com.example.checked.screenings.q2"
+        android:label="fragment_q2"
+        tools:layout="@layout/fragment_q2" >
+        <action
+            android:id="@+id/action_q2_to_q3"
+            app:destination="@id/q3" />
+        <action
+            android:id="@+id/action_q2_to_q1"
+            app:destination="@id/q1" />
+    </fragment>
+    <fragment
+        android:id="@+id/q3"
+        android:name="com.example.checked.screenings.q3"
+        android:label="fragment_q3"
+        tools:layout="@layout/fragment_q3" >
+        <action
+            android:id="@+id/action_q3_to_q4"
+            app:destination="@id/q4" />
+        <action
+            android:id="@+id/action_q3_to_q2"
+            app:destination="@id/q2" />
+    </fragment>
+    <fragment
+        android:id="@+id/q4"
+        android:name="com.example.checked.screenings.q4"
+        android:label="fragment_q4"
+        tools:layout="@layout/fragment_q4" >
+        <action
+            android:id="@+id/action_q4_to_q3"
+            app:destination="@id/q3" />
+        <action
+            android:id="@+id/action_q4_to_q5"
+            app:destination="@id/q5" />
+    </fragment>
+    <fragment
+        android:id="@+id/q5"
+        android:name="com.example.checked.screenings.q5"
+        android:label="fragment_q5"
+        tools:layout="@layout/fragment_q5" >
+        <action
+            android:id="@+id/action_q5_to_q4"
+            app:destination="@id/q4" />
+    </fragment>
 </navigation>
