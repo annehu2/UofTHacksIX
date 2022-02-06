@@ -37,13 +37,13 @@ public class q1 extends Fragment {
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                next.setVisibility(View.INVISIBLE);
+                next.setVisibility(View.VISIBLE);
             }
         });
         no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                next.setVisibility(View.VISIBLE);
+                next.setVisibility(View.INVISIBLE);
             }
         });
         prev.setOnClickListener(this::prev);
