@@ -46,11 +46,22 @@ public class Home extends Fragment {
         ImageView step2 = root.findViewById(R.id.step2);
         ImageView step3 = root.findViewById(R.id.step3);
 
+        ImageView qrcode = root.findViewById(R.id.generateQrButton);
+
         if(sharedPreferences.getBoolean("screening", false)){
             step1.setVisibility(View.INVISIBLE);
             step2.setVisibility(View.VISIBLE);
             covidScreeningButton.setImageResource(R.drawable.done_screening);
             start.setImageResource(R.drawable.start_mask);
+        }
+        if(sharedPreferences.getBoolean("maskcheck", false)){
+            step1.setVisibility(View.INVISIBLE);
+            step2.setVisibility(View.INVISIBLE);
+            step3.setVisibility(View.VISIBLE);
+            covidScreeningButton.setVisibility(View.INVISIBLE);
+            maskCheckButton.setVisibility(View.INVISIBLE);
+            generateQrButton.setVisibility(View.VISIBLE);
+            start.setImageResource(R.drawable.start_qr);
         }
 
         return root;

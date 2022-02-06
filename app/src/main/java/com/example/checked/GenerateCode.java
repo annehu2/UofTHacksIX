@@ -12,6 +12,7 @@ public class GenerateCode extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generate_code);
+        getSupportActionBar().hide();
 
         setVerified(true);
 

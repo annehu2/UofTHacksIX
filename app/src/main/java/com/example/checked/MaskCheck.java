@@ -2,7 +2,9 @@ package com.example.checked;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -21,18 +23,25 @@ public class MaskCheck extends AppCompatActivity {
     ImageView facePhoto;
     private static final String TAG = "MainActivity";
     boolean photoTaken = false;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mask_check);
+        sharedPreferences = getSharedPreferences("checked", Context.MODE_PRIVATE);
         getSupportActionBar().hide();
     }
 
     public void openCamera(View view) {
 
         if (photoTaken) {
-            finish();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("maskcheck", true);
+            editor.putString("goTo", "Home");
+            editor.apply();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
             return;
         }
 
